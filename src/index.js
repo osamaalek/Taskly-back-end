@@ -5,7 +5,7 @@ const {database_url} = require('./config.js');
 const app =fastify({ logger: true });
 
 try {
-  mongoose.connect(database_url);
+  mongoose.connect(process.env.DATABASE_URL);
 } catch (e) {
   console.error(e);
 }
