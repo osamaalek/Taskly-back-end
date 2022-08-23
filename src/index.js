@@ -4,11 +4,11 @@ const {database_url} = require('./config.js');
 
 const app =fastify({ logger: true });
 
-try {
-  mongoose.connect(database_url);
+/* try {
+  mongoose.connect(process.env.DATABASE_URL);
 } catch (e) {
   console.error(e);
-}
+} */
 
 
 app.register(require('./plugins/jwt'));
