@@ -1,7 +1,6 @@
 const fastify = require("fastify");
 const mongoose = require("mongoose");
-const {database_url,port} = require('./config.js');
-
+const {database_url} = require('./config.js');
 
 const app =fastify({ logger: true });
 
@@ -16,11 +15,6 @@ app.register(require('./plugins/jwt'));
 app.register(require('./routes/userRoutes'));
 app.register(require('./routes/taskRoutes'));
 
-/* 
-userRoutes(app);
-jwtPlugin(app);
-taskRoutes(app); */
-
 app.get('/', (req, res) => {
     try{
         res.send("Hello world!");
@@ -29,7 +23,7 @@ app.get('/', (req, res) => {
       }
 });
 
-app.listen(5000, '127.0.0.1', (err, address)=>{
+app.listen(5000 , (err, address)=>{
     if(err) {
         console.error(err);
         process.exit(1);
