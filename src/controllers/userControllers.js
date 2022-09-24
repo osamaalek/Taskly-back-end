@@ -7,7 +7,6 @@ module.exports = {
             const { username, password } = req.body
             const user = await User.findOne({username});
 
-            
             if(user == null || user.password !== password){
                 res.code(401).send({'message' : 'Invalid username or password'});
             }

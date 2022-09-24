@@ -5,7 +5,9 @@ const findAll = {
       type: 'array',
       items: {
         properties: {
-          content: { type: 'string' }
+          content: { type: 'string' },
+          _id: { type: 'string'},
+          completed: { type: 'boolean'}
         }
       }
     }

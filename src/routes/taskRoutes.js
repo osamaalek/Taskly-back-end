@@ -2,16 +2,7 @@ const taskControllers = require('../controllers/taskControllers')
 const taskSchema = require('../schemas/taskSchema');
 
 module.exports = (fastify, options, done) => {
-
-
-    /* app.addHook('onRequest', async (request, reply) => {
-        try {
-          await request.jwtVerify()
-        } catch (err) {
-          reply.send(err)
-        }
-      }); */
-
+  
     fastify.get('/api/tasks', {schema : taskSchema.findAll , onRequest: [fastify.autheraize]}, taskControllers.getAll);
 
     fastify.get('/api/tasks/uncompleted', {schema : taskSchema.findAll , onRequest: [fastify.autheraize]}, taskControllers.getAllUncompleted);

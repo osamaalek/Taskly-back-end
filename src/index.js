@@ -5,11 +5,11 @@ const {database_url} = require('./config.js');
 const app =fastify({ logger: true });
 
 
-/* try {
-  mongoose.connect(process.env.DATABASE_URL);
+try {
+  mongoose.connect(database_url);
 } catch (e) {
   console.error(e);
-}  */
+} 
 
 
 app.register(require('./plugins/jwt'));
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
       }
 });
 
-app.listen(5000 , (err, address)=>{
+app.listen(5000 , '0.0.0.0', (err, address)=>{
     if(err) {
         console.error(err);
         process.exit(1);
